@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background: url("{{ asset('images/rusa.jpg') }}") no-repeat center center fixed;
+            background: url("{{ asset('images/orchid.jpg') }}") no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             display: flex;
