@@ -6,41 +6,42 @@
     <title>@yield('title','Aplikasi')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
         body {
-            background: url("{{ asset('images/orchid.jpg') }}") no-repeat center center fixed;
-            background-size: cover;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
+            background: url("{{ asset('images/orchid.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
             font-family: "Poppins", sans-serif;
+            overflow-x: hidden;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            color: #fff;
-        }
-        .btn-custom {
-            background-color: #2d5f9c;
-            border: none;
-            color: #fff;
-            transition: 0.3s;
-        }
-        .btn-custom:hover {
-            background-color: #244a7c;
-        }
+
         nav.navbar {
             background: rgba(0, 0, 0, 0.4) !important;
             backdrop-filter: blur(8px);
+            z-index: 1000;
+            position: relative;
         }
+
+        main {
+            flex: 1; /* isi ruang kosong antara header dan footer */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* biar konten di tengah vertikal */
+            align-items: center;
+            padding: 20px;
+        }
+
         footer {
             background: rgba(0, 0, 0, 0.4) !important;
             backdrop-filter: blur(8px);
-        }
-        .content-wrapper {
-            flex: 1;
-            padding: 30px 15px;
+            position: relative;
+            z-index: 1;
         }
     </style>
 </head>
@@ -48,14 +49,16 @@
     {{-- Navbar --}}
     @include('components.navbar')
 
-    {{-- Content --}}
-    <div class="content-wrapper container d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
+    {{-- Konten utama --}}
+    <main>
+        <div class="container" style="overflow: visible;">
             @yield('content')
         </div>
-    </div>
+    </main>
 
     {{-- Footer --}}
     @include('components.footer')
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
