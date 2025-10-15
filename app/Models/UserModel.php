@@ -9,7 +9,7 @@ class UserModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'user'; // sesuai nama tabel
+    protected $table = 'user'; 
     protected $guarded = ['id'];
 
     public function kelas()
